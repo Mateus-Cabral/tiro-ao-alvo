@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+header {
+  display: flex;
+  border: 2px solid lightslategray;
+  padding: 5px;
+  height: fit-content;
+  margin: auto;
+  flex-direction: column;
+  text-align: center;
+}
+
+.destaque:hover {
+  color: crimson;
+}
+
+canvas {
+  border: 2px solid lightslategray;
+}
+
+main > p {
+  font-size: small;
+}
+
+main {
+  align-items: center;
+  text-align: center;
+}
+
+body {
+  color: aliceblue;
+  background-color: #181818;
+  font-family: "Open Sans", sans-serif;
+}
+
+.destaque {
+  font-weight: bold;
+  color: lightcoral;
+}
+
+footer {
+  font-size: small;
+}
