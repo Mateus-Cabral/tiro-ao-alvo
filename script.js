@@ -12,6 +12,8 @@ var score = 0
 var precisao = 0
 var totalAlvos = 0
 
+var totalClicks = 0
+
 var intervalo = 3000
 
 var raio = 10
@@ -32,7 +34,6 @@ function limpaTela() {
 }
 
 function desenhaAlvo(x, y) {
-
     desenhaCirculo(x, y, raio + 20, "red")
     desenhaCirculo(x, y, raio + 10, "white")
     desenhaCirculo(x, y, raio, "red")
@@ -43,8 +44,6 @@ function atualizaTela() {
     xRandom = randomizaPosicao(640)
     yRandom = randomizaPosicao(480)
     desenhaAlvo(xRandom, yRandom)
-    totalAlvos += 1
-    atualizaPrecisao()
 }
 
 function atualizaScore() {
@@ -53,7 +52,7 @@ function atualizaScore() {
 }
 
 function atualizaPrecisao() {
-    precisao = (score * 100) / totalAlvos
+    precisao = (score * 100) / totalClicks
     precisaoPlayer.innerHTML = precisao + "%"
 }
 
@@ -63,13 +62,10 @@ function atualizaTempo() {
 }
 
 function dispara(evento) {
+    totalClicks += 1
+
     let xMouse = evento.pageX - tela.offsetLeft
     let yMouse = evento.pageY - tela.offsetTop
-
-    console.log("Random:")
-    console.log(xRandom, yRandom)
-    console.log("Mouse:")
-    console.log(xMouse, yMouse)
 
     if ((xMouse > xRandom - raio) && (xMouse < xRandom + raio) &&
         (yMouse > yRandom - raio) && (yMouse < yRandom + raio)) {
@@ -79,6 +75,7 @@ function dispara(evento) {
         intervaloTela = setInterval(atualizaTela, intervalo)
         atualizaTela()
     }
+    atualizaPrecisao()
 }
 
 var intervaloTela = setInterval(atualizaTela, intervalo)
