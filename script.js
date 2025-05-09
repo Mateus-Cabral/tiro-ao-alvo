@@ -1,6 +1,8 @@
 var tela = document.querySelector("canvas")
 var pincel = tela.getContext("2d")
 
+var teste = ""
+
 var xRandom = randomizaPosicao(640)
 var yRandom = randomizaPosicao(480)
 
